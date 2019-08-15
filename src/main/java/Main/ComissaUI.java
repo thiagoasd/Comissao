@@ -293,8 +293,9 @@ public class ComissaUI extends javax.swing.JFrame {
     private void FinalizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarButtonActionPerformed
         // TODO add your handling code here:
         float total = getfloat(ConsumoTotalField.getText());
+        float luck = getTotalConsumoGuias();
         float apoio = getfloat(ConsumoApoioField.getText());
-        float praia = total - apoio - getTotalConsumoGuias();
+        float praia = total - apoio - luck;
         int paxApoio = Integer.parseInt(ContaApoioField.getText());
         int paxPraia = Integer.parseInt(PaxPraiaField.getText());
         int paxGuias = getTotalPaxGuia();
@@ -307,6 +308,10 @@ public class ComissaUI extends javax.swing.JFrame {
         texto += String.format("TOTAL RECEITA: R$%.2f\n", total);
         texto += String.format("TOTAL DE PAX: %d\n", paxTotal);
         texto += String.format("TM TOTAL: R$%.2f\n\n", TMdia);
+        
+        texto += String.format("TOTAL LUCK: R$%.2f\n", luck);
+        texto += String.format("TOTAL APOIO: R$%.2f\n", apoio);
+        texto += String.format("TOTAL PRAIA: R$%.2f\n\n", praia);
 
         for (Comissao com : comissoes) {
             
